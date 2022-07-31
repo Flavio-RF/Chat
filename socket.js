@@ -1,7 +1,6 @@
 const socketIO = require("socket.io")
 const messages = require("./models/Message")
 const users = require("./models/User")
-const cors = require("cors")
 
 
 
