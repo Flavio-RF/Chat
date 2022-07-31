@@ -1,6 +1,6 @@
 
 
 
+console.log("hola")
 
-
-socket = io()
+const socket = io()
