@@ -1,4 +1,7 @@
 const socketIO = require("socket.io")
+const messages = require("./models/Message")
+const users = require("./models/User")
+const cors = require("cors")
 
 
 
@@ -8,9 +11,17 @@ const socketIO = require("socket.io")
 
 
 module.exports = (server) => {
-    const io = socketIO(server);
+    const io = socketIO(server, {
+        cors: {
+            origin: "*",
+            methods: ["*"]
+        }
+    });
 
     io.on("connection", (socket) => {
-        console.log(socket)
+        console.log("conectado: " + socket.id)
+
+        socket.on("disconnect: ", () => console.log("descontado" + socket.id))
+
     })
 }
