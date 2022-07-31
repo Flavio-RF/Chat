@@ -2,10 +2,19 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors")
+const nunjucks = require("nunjucks")
+const path = require("path")
 const PORT = process.env.APP_PORT || 3000;
 const routes = require("./routes");
 const registerWebSocket = require("./socket")
 require("./db")();
+
+
+app.set("view engine", "njk")
+nunjucks.configure("views", {
+    autoescape: true,
+    express: app,
+});
 
 app.use(cors())
 app.use(express.json());
