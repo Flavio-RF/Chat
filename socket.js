@@ -11,6 +11,6 @@ module.exports = (server) => {
     const io = socketIO(server);
 
     io.on("connection", (socket) => {
-
+        console.log(socket)
     })
 }
