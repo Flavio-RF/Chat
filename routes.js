@@ -10,4 +10,5 @@ router.get("/", async (req, res) => {
     res.status(200).render("chat", { messages })
 });
 
+
 module.exports = router;

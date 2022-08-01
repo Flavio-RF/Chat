@@ -10,6 +10,10 @@ module.exports = async () => {
 
         console.log("conect to DB")
 
+        mongoose.connection.dropDatabase(() => {
+            console.log("dropDB")
+        })
+
     } catch (error) {
         console.error("Error al iniciar conexion con la base de datos.", error);
     }

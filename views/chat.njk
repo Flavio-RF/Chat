@@ -8,7 +8,35 @@
         <title>Chat</title>
     </head>
     <body>
-        <h1>hello world</h1>
+
+        <section class="msger">
+            <header class="msger-header">
+                <div class="msger-header-title">Chat</div>
+                <div class="msger-header-username"></div>
+            </header>
+
+            <main class="msger-chat">
+                {% for message in messages %}
+
+                    <div class="msg ${side}-msg">
+                        <div class="msg-bubble">
+                            <div class="msg-info">
+                                <div class="msg-info-name">{{message.user.username}}</div>
+                                <div class="msg-info-time" datetime="${date}"></div>
+                            </div>
+                            <div class="msg-text">
+                                {{message.text}}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </main>
+
+            <form class="msger-inputarea">
+                <input type="text" class="msger-input" placeholder="Escriba su mensaje..."/>
+                <button type="submit" class="msger-send-btn">Enviar</button>
+            </form>
+        </section>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js" integrity="sha512-PU5S6BA03fRv1Q5fpwXjg5nlRrgdoguZ74urFInkbABMCENyx5oP3hrDzYMMPh3qdLdknIvrGj3yqZ4JuU7Nag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
